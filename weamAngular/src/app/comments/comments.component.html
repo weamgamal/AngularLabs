@@ -1,0 +1,10 @@
+<div class="row">
+
+    <div class="card" *ngFor="let item of Comments " style="width:18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Name {{item.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted ">E-Mail : {{item.email}}</h6>
+            <p class="card-text">{{item.body}}</p>
+        </div>
+    </div>
+</div>

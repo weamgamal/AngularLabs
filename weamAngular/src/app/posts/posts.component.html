@@ -1,0 +1,13 @@
+<div class="alert alert-danger" *ngIf="errMsg">{{errMsg}}</div>
+<div class="container ">
+
+    <div class="card w-50  my-3 " *ngFor="let item of arrayPosts">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">id: <br />{{item.id}}</li>
+            <li class="list-group-item">Title:<br /> {{item.title}}</li>
+            <li class="list-group-item">Body: <br />{{item.body}}</li>
+            <button class="btn btn-primary" (click)="viewComments(item.id)">View Comments</button>
+        </ul>
+
+    </div>
+</div>

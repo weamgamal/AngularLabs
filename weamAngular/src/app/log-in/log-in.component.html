@@ -1,0 +1,29 @@
+<div class="container">
+    <form #userForm="ngForm">
+
+        <div class="from-group">
+            <label>Email :</label>
+            <input type="email" required [class.is-invalid]="email.invalid&&email.touched" #email="ngModel"
+                name="txtEmail" ngModel class="form-control">
+            <small class="text-danger" *ngIf="email.invalid&&email.touched">Email is required</small>
+        </div>
+
+        <div class="from-group">
+            <label>Password :</label>
+            <input type="password" required [class.is-invalid]="Password.invalid&&Password.touched" #Password="ngModel"
+                name="txtPassword" ngModel class="form-control">
+            <small class="text-danger" *ngIf="Password.invalid&&Password.touched">Password is required</small>
+
+        </div>
+
+
+
+
+
+        <button type="submit" [disabled]="userForm.invalid"
+            [ngClass]="{'btn': true, 'btn-primary': userForm.valid, 'btn-danger': userForm.invalid}" class="btn">
+            {{ userForm.valid ? 'Login' : 'Please fill in all required fields' }}
+        </button>
+
+    </form>
+</div>

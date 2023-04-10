@@ -1,0 +1,29 @@
+<app-header></app-header>
+<!-- <app-parent></app-parent>  -->
+<!-- <button (click)="showProducts()">Display Data</button> -->
+
+<router-outlet>
+    <app-products style="display: none;"></app-products>
+</router-outlet>
+<!-- <table *ngIf="displayProducts" class="table">-->
+<!-- <button (click)="showProducts()">showProducts</button> -->
+
+<table *ngIf="displayProducts" class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of appProducts">
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.quantity }}</td>
+            <td><img [src]="product.img" alt=""></td>
+        </tr>
+    </tbody>
+</table>
+<app-footer></app-footer>

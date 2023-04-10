@@ -1,0 +1,51 @@
+<h1>{{ StoreName |uppercase }}</h1>
+<h3>Product Name : {{ Products[1].name }}</h3>
+
+<img [src]="StoreLogo" alt="">
+<h3>Discount: {{ Discount | percent}}</h3>
+<h3 *ngIf="Discount !=='NoDiscount'">Discount: {{ Discount }}</h3>
+<br>
+<select>
+    <option *ngFor="let category of Categories" [value]="category">{{ category.name }}</option>
+</select>
+<br>
+<input type="text" [(ngModel)]="CustomerName" placeholder="Enter your name">
+<br>
+<table *ngIf="!Buy" class="table ">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>Details</th>
+            <th>Buy</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr [class.selected]="product.id==selecteId" *ngFor="let product of Products">
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.quantity }}</td>
+            <td><img [src]="product.img" alt=""></td>
+            <td><button (click)="showDetailes(product)" class="btn btn-primary"> Show Details </button></td>
+            <td><button *ngIf="!Buy" (click)="DoBuy()">Buy</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="Buy">
+    Thanks for purchasing from our Store, {{ CustomerName }}!
+</div>
+
+<button *ngIf="Buy" (click)="DoBuy()">Show Table Again</button>
+<br>
+<input type="number" [(ngModel)]="ProdId">
+<button (click)="getById(ProdId)">GetByID </button>
+<div class="card m-5 col-md-3">
+    <h4>{{SingleProduct.name}}</h4>
+    <p> <b>price</b> {{ SingleProduct.price }}</p>
+    <p><b>quantity</b> {{ SingleProduct.quantity }}</p>
+    <img [src]="SingleProduct.img" alt="">
+</div>
